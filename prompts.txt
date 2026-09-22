@@ -1,0 +1,6 @@
+# BlogBot prompts: one full ChatGPT prompt per line.
+# Empty lines and lines starting with # are ignored.
+# Add your own prompts below — one per line.
+# Example:
+
+Write a complete SEO-optimized blog post titled "How to Extract Business Data from Any Website in 2026". Requirements: 900-1100 words, H2 and H3 subheadings, target audience B2B companies and marketing teams, include a strong CTA at the end directing readers to your website. Format: Markdown only, no explanations or commentary outside the blog content itself.

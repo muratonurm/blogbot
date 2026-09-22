@@ -1,0 +1,5 @@
+requests
+schedule>=1.2.0
+python-dotenv
+markdown2
+pytz

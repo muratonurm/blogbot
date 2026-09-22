@@ -1,0 +1,8 @@
+.env
+.venv/
+__pycache__/
+blogbot.log
+progress.json
+output/*
+!output/.gitkeep
+prompts_private.txt

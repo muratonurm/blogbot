@@ -1,0 +1,36 @@
+name: BlogBot Daily Run
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-blogbot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Write private prompts
+        env:
+          PROMPTS_CONTENT: ${{ secrets.PROMPTS_CONTENT }}
+        run: echo "$PROMPTS_CONTENT" > prompts.txt
+
+      - name: Run BlogBot
+        env:
+          SCRAPE_DO_TOKEN: ${{ secrets.SCRAPE_DO_TOKEN }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          SMTP_HOST: mail.privateemail.com
+          SMTP_PORT: "587"
+        run: python main.py --count 2 --now
